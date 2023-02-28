@@ -25,13 +25,9 @@ public class TesLogin {
     }
 
     @Test (priority = 1)
-    public void validlogin() {
+    public void validlogin(String username, String password) {
         delay(2);
-        driver.findElement(By.xpath("//input[@placeholder='Username']")).click();
-        driver.findElement(By.xpath("//input[@placeholder='Username']")).sendKeys("Admin");
-        driver.findElement(By.xpath("//input[@placeholder='Password']")).click();
-        driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("admin123");
-        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        login("Admin","Admin123");
         String dashboardtxt = driver.findElement(By.xpath("//h6[@class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module']")).getText();
         Assert.assertEquals(dashboardtxt,"Dashboard");
         System.out.println("sukses login oranghrm");
@@ -44,16 +40,13 @@ public class TesLogin {
             driver.get(url);
             System.out.println("Get Url");
             driver.manage().window().maximize();
-            driver.findElement(By.xpath("//input[@placeholder='Username']")).sendKeys("Admin");
-            driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("admin");
-            driver.findElement(By.xpath("//button[@type='submit']")).click();
-
+            login("Admin","admin");
             String Alert = driver.findElement(By.xpath("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']")).getText();
             Assert.assertEquals(Alert,"Invalid credentials");
             System.out.println("Alert Invalid credentials");
-
-
         }
+
+
         @AfterClass
             public void quitbrowser() {
                 delay(5);
@@ -70,4 +63,11 @@ public class TesLogin {
             }
             System.out.println("Get Url");
         }
+
+        void login(String username, String password) {           //membuat metode login karna berulang
+            driver.findElement(By.xpath("//input[@placeholder='Username']")).sendKeys("Admin");
+            driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("admin");
+            driver.findElement(By.xpath("//button[@type='submit']")).click();
     }
+}
+
