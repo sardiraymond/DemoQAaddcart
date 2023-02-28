@@ -14,12 +14,9 @@ import java.util.concurrent.TimeUnit;
 public class TesLogin {
     WebDriver driver = new ChromeDriver();
     JavascriptExecutor js = (JavascriptExecutor) driver;
-//System.setProperty("webdriver.chrome.driver", "/Applications/chromedriver_mac_arm64/chromedriver");
 
     @BeforeClass
     public void Setup() {
-//      System.setProperty("webdriver.chrome.driver", "/Applications/chromedriver_mac_arm64/chromedriver");
-//      WebDriver driver = new ChromeDriver();
         String url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
         driver.get(url);
         System.out.println("Get Url");
@@ -56,7 +53,6 @@ public class TesLogin {
             System.out.println("Alert Invalid credentials");
 
         }
-
         @AfterClass
             public void quitbrowser() {
                 delay(5);
