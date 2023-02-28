@@ -14,10 +14,10 @@ public class Seleniumlocator {
         driver.get(url);
         driver.manage().window().maximize();
         System.out.println("maximize Browser");
-
-        //locator;
         String titlepage = driver.findElement(By.className("main-header")).getText();
         System.out.println("title page" +titlepage);
+
+        //locator;
         driver.findElement(By.id("userName")).sendKeys("raymondsardi");
         driver.findElement(By.id("userEmail")).sendKeys( "raymond@yopmail.com");
         driver.findElement(By.id("currentAddress")).sendKeys( "ditempat");
