@@ -28,7 +28,7 @@ public class week3test {
         }
 
 
-        // tambahkan produk ke add to cart.a
+        // tambahkan produk ke add to cart.ab
         driver.get("https://shop.demoqa.com/product/black-strappy-polka-dot-ruched-midi-dress/");
         WebElement addToCartButton = driver.findElement(By.name("add-to_cart"));
         addToCartButton.click();
